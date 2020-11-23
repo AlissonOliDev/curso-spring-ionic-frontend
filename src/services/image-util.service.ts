@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class ImageUtilService {
+export class ImageUtilService {    
 
     dataUriToBlob(dataURI) {
         var byteString = atob(dataURI.split(',')[1]);
@@ -12,5 +12,5 @@ export class ImageUtilService {
             ia[i] = byteString.charCodeAt(i);
         }
         return new Blob([ab], { type: mimeString });
-    }
+    }  
 }

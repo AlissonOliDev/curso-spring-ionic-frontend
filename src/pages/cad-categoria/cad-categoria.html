@@ -14,21 +14,23 @@
       <ion-input formControlName="nome" type="text"></ion-input>      
     </ion-item>
     <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor inválido</p>       
-        
+    
     <ion-avatar>
-      <img class="circle" [src]="categoriaImage">
-    </ion-avatar>      
+      <img formGroupName="imageUrl" type="file" class="circle" [src]="categoriaImage">
+    </ion-avatar>    
     
       <ion-card>
         <ion-card-header>
           Escolha a imagem da categoria
         </ion-card-header>
         <ion-item *ngIf="picture">
-          <img [src]="picture">
+          <img formGroupName="imageUrl" type="file" [src]="picture">
         </ion-item>        
       </ion-card>  
-      <button ion-button block type="submit" ion-button outline block (click)="sendPicture" [disabled]="formGroup.invalid">Criar Categoria</button>          
+      <button ion-button block type="submit" (click)="sendPicture" [disabled]="formGroup.invalid">Criar Categoria</button>   
+             
   </form> 
+  <button ion-button block  (click)="adm()">Cancelar</button>
   <ion-footer>
   <ion-item>
     <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Camera</button>

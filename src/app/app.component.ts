@@ -27,7 +27,7 @@ export class MyApp {
       { title: 'Profile', component: 'ProfilePage' },
       { title: 'Categorias', component: 'CategoriasPage' },
       { title: 'Carrinho', component: 'CartPage'},
-      { title: 'Nova Categoria', component: 'CadCategoriaPage'},
+      { title: 'ADM', component: 'AdmPage'},
       { title: 'Logout', component: ''}
     ];
 

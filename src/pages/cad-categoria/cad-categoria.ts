@@ -51,7 +51,7 @@ export class CadCategoriaPage {
 
       this.formGroup = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(120)]],
-      imageUrl: ['',[]]
+      imageUrl: ['', []]
       }); 
   }
 
@@ -90,7 +90,7 @@ export class CadCategoriaPage {
     }
 
     this.camera.getPicture(options).then((imageData) => {
-     this.picture = 'data:image/png;base64,' + imageData;
+     this.categoriaImage = 'data:image/png;base64,' + imageData;
      this.cameraOn = false;
     }, (err) => {
       this.cameraOn = false;
@@ -109,7 +109,7 @@ export class CadCategoriaPage {
     }
 
     this.camera.getPicture(options).then((imageData) => {
-     this.picture = 'data:image/png;base64,' + imageData;
+     this.categoriaImage = 'data:image/png;base64,' + imageData;
      this.cameraOn = false;
     }, (err) => {
       this.cameraOn = false;
@@ -117,9 +117,9 @@ export class CadCategoriaPage {
   }
 
   sendPicture() {
-    this.categoriaService.uploadPicture(this.picture)
+    this.categoriaService.uploadPicture(this.categoriaImage)
       .subscribe(response => {
-        this.picture = null;
+        this.categoriaImage = null;
         this.getImageIfExists();
       },
       error => {
@@ -127,10 +127,10 @@ export class CadCategoriaPage {
   }
 
   cancel() {
-    this.picture = null;
+    this.categoriaImage = null;
   }
 
-  cadcat() {
+  cadcat() {    
     this.categoriaService.insert(this.formGroup.value)
       .subscribe(response => {
         this.showInsertOk();
@@ -153,5 +153,9 @@ export class CadCategoriaPage {
       ]
     });
     alert.present();
+  }
+
+  adm() {
+    this.navCtrl.setRoot('AdmPage');
   }
 }

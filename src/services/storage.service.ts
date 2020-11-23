@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { STORAGE_KEYS } from "../config/storage_keys.config";
 import { LocalUser } from "../models/local_user";
 import { Cart } from "../models/cart";
+import { CategoriaDTO } from "../models/categoria.dto";
 
 @Injectable()
 export class StorageService {
@@ -41,6 +42,25 @@ export class StorageService {
         } 
         else {
             localStorage.removeItem(STORAGE_KEYS.cart);
+        }
+    }
+
+    getCategoria() : CategoriaDTO {
+        let usr = localStorage.getItem(STORAGE_KEYS.categoria);
+        if (usr == null) {
+            return null;
+        }
+        else {
+            return JSON.parse(usr);
+        }
+    }
+
+    setCategoria(obj : CategoriaDTO) {
+        if (obj == null) {
+            localStorage.removeItem(STORAGE_KEYS.categoria);
+        }
+        else {
+            localStorage.setItem(STORAGE_KEYS.categoria, JSON.stringify(obj));
         }
     }
 }
