@@ -27,6 +27,8 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'cad-categoria.html',
 })
 export class CadCategoriaPage {
+
+  bucketUrl: string = API_CONFIG.bucketBaseUrl;  
  
   categoria: CategoriaDTO;
   picture: string;

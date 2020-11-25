@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Cadastro de Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="cadastrarProduto(); $event.preventDefault()">
+
+  <ion-item>
+    <ion-label stacked>Nome do Produto*</ion-label>
+    <ion-input formControlName="nome" type="text"></ion-input>      
+  </ion-item>
+  <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor inválido</p>  
+
+  <ion-item>
+    <ion-label stacked>Valor*</ion-label>
+    <ion-input formControlName="preco" type="CurrencyPipe"></ion-input>      
+  </ion-item>
+  <p class="danger" *ngIf="formGroup.controls.preco.dirty && formGroup.controls.preco.errors" margin-left>Valor inválido</p> 
+
+  <ion-item>
+    <ion-label stacked>Categorias*</ion-label>
+    <ion-select formControlName="categoriaId"  multiple="true" >      
+      <ion-option *ngFor="let categoria of categorias; first as f" [value]="categoria.id" [selected]="f">{{categoria.nome}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <p class="danger" *ngIf="formGroup.controls.categoriaId.dirty && formGroup.controls.categoriaId.errors" margin-left>Valor inválido</p> 
+
+  <button ion-button block type="submit" [disabled]="formGroup.invalid">Criar Produto</button>
+  
+</form> 
+
+
+<ion-footer>
+  <button ion-button block (click)="adm()">Cancelar</button>
+</ion-footer>
+</ion-content>

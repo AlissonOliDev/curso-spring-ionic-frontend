@@ -18,14 +18,15 @@
   <button ion-button block>Deletar</button> 
   
   <ion-title>Cadastro de Produto</ion-title>
-  <button ion-button block>Novo</button>
+  <button ion-button block (click)="cadProduto()">Novo</button>
   <button ion-button block>Alterar</button> 
   <button ion-button block>Deletar</button> 
 
   <ion-title>Gerenciamento</ion-title>
   <button ion-button block>Pedidos</button>
+  <button ion-button block (click)="catProd()">Categoria dos produtos</button>
 
 </ion-content>
 <ion-footer>
-  <button ion-button block (click)="categoria()">Sair</button>
+  <button ion-button block (click)="catProd()">Sair</button>
 </ion-footer>

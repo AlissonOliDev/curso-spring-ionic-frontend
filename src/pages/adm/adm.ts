@@ -29,4 +29,12 @@ export class AdmPage {
   categoria() {
     this.navCtrl.setRoot('CategoriasPage');
   }
+
+  cadProduto() {
+    this.navCtrl.setRoot('CadProdPage');
+  }
+
+  catProd(){
+    this.navCtrl.setRoot('CatProdPage')
+  }
 }
